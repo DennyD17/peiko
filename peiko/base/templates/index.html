@@ -1,15 +1,6 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-ВЕСЕЛО ?
-СОСИ ХУЙ, БалБЕСИНА!!!
-</body>
-{% block extrascript %}
-    <script src="{% static "js/index.js" %}"></script>
-{% endblock %}
-</html>
+{% extends "base.html" %}
+    {% block content %}
+        {% for obj in qs %}
+            <p>{{ obj.name}} - {{ obj.id }}</p>
+        {% endfor %}
+    {% endblock %}
