@@ -1,9 +1,34 @@
 var path = require('path');
+var webpack = require('webpack');
+var nodEnv = process.env.NODE_ENV;
 
 module.exports = {
-	entry:'./base/static/js/index.js', 
+	devtool: 'cheap-module-eval-source-map',
+	entry: [
+		'babel-polyfill',
+		'./base/static/js/index.js'
+	],  
 	output: {
-		path: path.resolve('dist'),
-		filename: 'bundle.js'
-	}
+		filename: 'bundle.js',
+		publicPath: '/',
+		path: path.resolve(__dirname, 'dist')
+	},
+	resolve: {
+		extensions: [' ', '.js', '.jsx']
+	},
+	plugins: [
+        new webpack.optimize.OccurrenceOrderPlugin(),
+        new webpack.HotModuleReplacementPlugin(),
+        new webpack.NoEmitOnErrorsPlugin()
+        ],
+    module: {
+		loaders: [
+            {
+                test: /\.jsx?$/,
+                exclude: /node_modules/,
+                loaders: ['babel-loader'],
+            }
+        ]
+	},
+	watch: true,
 }
