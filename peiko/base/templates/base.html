@@ -1,0 +1,21 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Главная</title>
+    {% block extrahead %}
+    {% endblock %}
+</head>
+<body>
+БАННЕР - ГЛАВНАЯ СТРАНИЦЫ
+<br><br><br><br>
+{% block content %}
+{% endblock %}
+<br><br><br><br><br>
+<h1>FOOTER</h1>
+</body>
+<script src="{% static "js/index.js" %}"></script>
+{% block extrascript %}
+{% endblock %}
+</html>
