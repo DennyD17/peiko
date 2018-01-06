@@ -101,4 +101,4 @@ ENV/
 .mypy_cache/
 
 # node_modules
-/node_modules
+node_modules
