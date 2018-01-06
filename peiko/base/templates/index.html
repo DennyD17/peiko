@@ -4,12 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    {% block extrascript %}
+    <script src="{% static "js/index.js" %}"></script>
+	{% endblock %}
 </head>
 <body>
-ВЕСЕЛО ?
-СОСИ ХУЙ, БалБЕСИНА!!!
+	<div id="main">
+	</div>
 </body>
-{% block extrascript %}
-    <script src="{% static "js/index.js" %}"></script>
-{% endblock %}
 </html>
