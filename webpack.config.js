@@ -1,6 +1,8 @@
 var path = require('path');
 var webpack = require('webpack');
 var nodEnv = process.env.NODE_ENV;
+var BundleTracker = require('webpack-bundle-tracker');
+
 
 module.exports = {
 	devtool: 'cheap-module-eval-source-map',
@@ -8,7 +10,7 @@ module.exports = {
 		'babel-polyfill',
 		'./base/static/js/index.js'
 	],  
-	output: {	
+	output: {
        filename: 'bundle.js',
        publicPath: '/',
        path: path.resolve(__dirname, 'base/static/dist')
@@ -19,7 +21,8 @@ module.exports = {
 	plugins: [
         new webpack.optimize.OccurrenceOrderPlugin(),
         new webpack.HotModuleReplacementPlugin(),
-        new webpack.NoEmitOnErrorsPlugin()
+        new webpack.NoEmitOnErrorsPlugin(),
+        new BundleTracker({filename: './webpack-stats.json'}),
         ],
     module: {
 		loaders: [
@@ -32,3 +35,6 @@ module.exports = {
 	},
 	watch: true,
 };
+
+
+
