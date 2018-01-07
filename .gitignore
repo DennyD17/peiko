@@ -102,5 +102,12 @@ ENV/
 
 # node_modules
 node_modules
+
+# Env
 myenv/
+
+# keys
 docs/
+
+# IDE
+.idea/
