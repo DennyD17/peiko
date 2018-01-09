@@ -2,11 +2,9 @@ from django.views.generic import TemplateView
 from django.db.models import F
 
 from rest_framework import viewsets, mixins, generics
-
+from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from base.serializers import ProductSerializer
 from base.models import Product
-
-import random
 
 
 class IndexView(TemplateView):
@@ -16,6 +14,7 @@ class IndexView(TemplateView):
 class ProductViewSet(viewsets.ModelViewSet):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
+    permission_classes = [IsAuthenticatedOrReadOnly]
 
     def retrieve(self, request, *args, **kwargs):
         Product.objects.filter(pk=kwargs['pk']).update(num_of_views=F('num_of_views') + 1)

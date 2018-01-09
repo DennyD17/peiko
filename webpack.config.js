@@ -1,7 +1,6 @@
 var path = require('path');
 var webpack = require('webpack');
 var nodEnv = process.env.NODE_ENV;
-var BundleTracker = require('webpack-bundle-tracker');
 
 
 module.exports = {
@@ -22,7 +21,6 @@ module.exports = {
         new webpack.optimize.OccurrenceOrderPlugin(),
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NoEmitOnErrorsPlugin(),
-        new BundleTracker({filename: './webpack-stats.json'}),
         ],
     module: {
 		loaders: [
