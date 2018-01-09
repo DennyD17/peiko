@@ -18,6 +18,7 @@ class Product(models.Model):
     name = models.CharField(max_length=100, verbose_name='Наименование')
     description = RichTextUploadingField(verbose_name='Описание', )
     image = models.ImageField(upload_to='images', verbose_name='Картинка', blank=True)
+    num_of_views = models.IntegerField(default=0, verbose_name='Количество просмотров')
 
     @property
     def short_description(self):

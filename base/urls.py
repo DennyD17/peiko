@@ -5,6 +5,7 @@ from rest_framework.routers import DefaultRouter
 
 urlpatterns = [
     re_path(r"^$", IndexView.as_view(), name='index'),
+    re_path(r'^api/top-products$', TopSixProductsView.as_view()),
     ]
 
 router = DefaultRouter()
