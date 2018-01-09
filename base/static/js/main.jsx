@@ -3,6 +3,9 @@ import ReactDom from 'react-dom';
 import styles from '../css/style.css';
 
 import Menu from './menu'
+import Products from './products'
+import About from './about'
+import Contacts from './contacts'
 
 export default class Main extends React.Component {
 
@@ -12,11 +15,18 @@ export default class Main extends React.Component {
 		this.state = {
 			activePage: 'about',
 		}
+
+		this.setActivePage = this.setActivePage.bind(this);
 	}
 
-	setActivePage() {}
+	setActivePage(name) {
+		this.setState({
+			activePage: name
+		});
+	};
 
 	render() {
+	
 		return (
 			<div className='body'>
 				<div className='head'>
@@ -28,14 +38,19 @@ export default class Main extends React.Component {
 				    </div>
 				</div>
 				<div className='menu'>
-					<Menu/>
+					<Menu
+						switch={this.setActivePage}
+					/>
 				</div>
 				<div className='content'>
+					{this.state.activePage == 'products' ? <Products /> : null}
+					{this.state.activePage == 'about' ? <About /> : null}
+					{this.state.activePage == 'contacts' ? <Contacts /> : null }
 				</div>
 				<div className='footer'>
 					<div className='footer__contacts'>
 						<div className='contacts__info'>8 (495) 405-01-35</div>
-						<div className='contacts__info'>INFO@PEIKO.RU</div>
+						<div className='marginBottom'>INFO@PEIKO.RU</div>
 						<div className='contacts__text'>Наро-Фоминский район, пос. Селятино,
 						ул. Вокзальная, дом 2</div>
 					</div>

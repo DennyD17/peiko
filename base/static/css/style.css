@@ -57,7 +57,7 @@ body {
   text-align: center;
   display: inline-block;
   width: calc(100% / 3);
-  min-width: 310px;
+  min-width: 250px;
   font-size: 25px;
   font-family: 'PT Sans', sans-serif;
   padding: 10px 10px 11px 10px;
@@ -94,6 +94,10 @@ body {
   margin-bottom: 10px;
 }
 
+.marginBottom {
+  margin-bottom: 20px;
+}
+
 .contacts__text {
   font-size: 15px;
   max-width: 300px;
@@ -112,6 +116,7 @@ body {
   margin: 0 auto;
   padding: 7px 10px 8px 10px;
   vertical-align: middle;
+  margin-bottom: 40px;
 }
 
 .message__rights {
