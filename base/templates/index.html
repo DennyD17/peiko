@@ -4,18 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    {% for product in products %}
-        <h1>{{ product.name }}</h1>
-        {% thumbnail product.image '200x200' as img %}
-            <img src="{{ img.url }}" alt="{{ product.name }}">
-        {% endthumbnail %}
-    {% endfor %}
-    {% block extrascript %}
-        <script src="{% static "js/index.js" %}"></script>
-	{% endblock %}
 </head>
 <body>
 	<div id="main">
+        {% for product in products %}
+            <h1>{{ product.name }}</h1>
+            {% thumbnail product.image '200x200' as img %}
+                <img src="{{ img.url }}" height="{{ img.height }}" width="{{ img.width }}" alt="{{ product.name }}">
+            {% endthumbnail %}
+        {% endfor %}
 	</div>
 </body>
+{% block extrascript %}
+        <script src="{% static "js/index.js" %}"></script>
+	{% endblock %}
 </html>
