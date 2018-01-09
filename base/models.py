@@ -26,6 +26,10 @@ class Product(models.Model):
         else:
             return self.description
 
+    @property
+    def img_url(self):
+        return self.image.url
+
     class Meta:
         verbose_name = 'Продукт'
         verbose_name_plural = 'Продукты'
