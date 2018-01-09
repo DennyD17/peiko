@@ -112,5 +112,9 @@ docs/
 # IDE
 .idea
 
-# Compiled Webpack file
-base/static/dist
+# ������� ���������� collectstatic, �� ��� ����������
+/static/
+
+media/
+
+
