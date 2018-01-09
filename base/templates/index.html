@@ -4,12 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+<!--     <link rel="stylesheet" href="{% static 'css/style.css' %}"> -->
 </head>
 <body>
 	<div id="main">
 	</div>
 </body>
-{% block extrascript %}
-        <script src="{% static "js/index.js" %}"></script>
+	{% block extrascript %}
+    	<script src="{% static 'dist/bundle.js' %}"></script>
 	{% endblock %}
 </html>
