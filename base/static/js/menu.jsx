@@ -2,6 +2,11 @@ import React from 'react';
 import ReactDom from 'react-dom';
 
 export default class Menu extends React.Component{
+	constructor(props) {
+		super(props);
+	}
+
+	setActivePage() {}
 
 	render() {
 		return(

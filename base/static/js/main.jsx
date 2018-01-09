@@ -6,6 +6,16 @@ import Menu from './menu'
 
 export default class Main extends React.Component {
 
+	constructor(props) {
+		super(props);
+
+		this.state = {
+			activePage: 'about',
+		}
+	}
+
+	setActivePage() {}
+
 	render() {
 		return (
 			<div className='body'>
