@@ -6,8 +6,6 @@ export default class Menu extends React.Component{
 		super(props);
 	}
 
-	setActivePage() {}
-
 	render() {
 		return(
 				<div>
