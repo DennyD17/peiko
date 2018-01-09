@@ -19,6 +19,13 @@ class Product(models.Model):
     description = RichTextUploadingField(verbose_name='Описание', )
     image = models.ImageField(upload_to='images', verbose_name='Картинка', blank=True)
 
+    @property
+    def short_description(self):
+        if len(self.description) > 15:
+            return self.description[0:15] + ' ...'
+        else:
+            return self.description
+
     class Meta:
         verbose_name = 'Продукт'
         verbose_name_plural = 'Продукты'

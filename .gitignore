@@ -111,3 +111,8 @@ docs/
 
 # IDE
 .idea
+
+# Статика генеренная collectstatic, не для разработки
+static/
+
+media/
