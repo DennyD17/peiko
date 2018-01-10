@@ -11,21 +11,22 @@ export default class Home extends React.Component{
 		}
 	}
 
-	async loadTopPtoducts(url) {
+	async loadTopProducts(url) {
 		this.setState({
 			topProducts: await fetch(url).then(res => res.json())
 		})
 	}
 
 	componentDidMount() {
-		this.loadTopPtoducts('api/products/top_viewed/')
+		this.loadTopProducts('api/products/top_viewed/')
 	}
 
 	render() {
+
 		const imgSize = {
 			width : '150px'
 		}
-		console.log(this.state.topProducts)
+
 		return(
 				<div className='products'>
 					{this.state.topProducts.map((item, index) => (

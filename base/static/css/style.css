@@ -2,7 +2,7 @@ body {
   background-color: #cecece;
   width: 900px;
   margin: 0 auto;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 a {
@@ -86,8 +86,6 @@ a {
 }
 
 .footer {
-  position: fixed;
-  bottom: -20px;
   width: 900px;
   color: white;
   font-size: 25px;

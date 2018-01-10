@@ -7,19 +7,35 @@ export default class Products extends React.Component{
 		super(props);
 
 		this.state = {
-			Products: []
+			products: []
 		}
 	}
 
-	componentDidMount() {
+	async loadProducts(url) {
+		this.setState({
+			products: await fetch(url).then(res => res.json()).catch(function(error) {console.log(error)})
+		})
+	}
 
+	componentDidMount() {
+		this.loadProducts('../api/products/')
 	}
 
 	render() {
-		console.log(this.state.topProducts)
+
+		const imgSize = {
+			width : '150px'
+		}
+
 		return(
-				<div>
-					продукты
+				<div className='products'>
+					{this.state.products.map((item, index) => (
+						<div className='products__item' key={index}>
+							<div>{item.name}</div>
+							<div><img style={imgSize} src={item.img_url}/></div>
+							<div>{item.description}</div>
+						</div>
+					))}
 				</div>
 			)
 	}
