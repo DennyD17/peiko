@@ -9,10 +9,8 @@ router.register(r'api/about', AboutPageTextViewSet)
 router.register(r'api/contacts', ContactsPageTextViewSet)
 
 urlpatterns = [
-    re_path(r"^$", IndexView.as_view(), name='index'),
     re_path(r'^api/$', router.get_api_root_view()),
 ]
 
-
 urlpatterns += router.urls
-
+urlpatterns += [re_path(r'^.*$', IndexView.as_view(), name='index')]
