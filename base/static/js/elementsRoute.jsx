@@ -1,11 +1,13 @@
 import React from 'react';
 import ReactDom from 'react-dom';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 
 import Main from './main'
 import Products from './products'
 import About from './about'
 import Contacts from './contacts'
+import Home from './home'
+import NotFound from './notFound'
 
 export default class ElementsRoute extends React.Component {
 
@@ -15,10 +17,12 @@ export default class ElementsRoute extends React.Component {
 			<Route path='/'>
 			<Main>
 				<Switch>
-                    <Route exact path='/' component={About} />
+					<Route exact path='/' component={Home} />
+                    <Route exact path='/about' component={About} />
                     <Route path='/products' component={Products} />
                     <Route exact path='/contacts' component={Contacts} />
-                    {/*<Redirect from='*' to='/404-not-found'/>*/}
+                    <Route path='/404-not-found' component={NotFound} />
+                    <Redirect from='*' to='/404-not-found'/>
                 </Switch>
 			</Main>
 			</Route>

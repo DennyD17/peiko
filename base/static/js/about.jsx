@@ -11,7 +11,7 @@ export default class About extends React.Component{
 	render() {
 		return(
 				<div>
-					ДЕНИС ДАСТ ВСЕМ В ЖОПУ И РОТ
+					Основная информация
 				</div>
 			)
 	}
