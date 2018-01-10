@@ -1,8 +1,7 @@
 body {
   background-color: #b8b8ba;
-  width: 100%;
-  min-width: 1125px;
-  margin: 0;
+  width: 900px;
+  margin: 0 auto;
 }
 
 a {
@@ -87,8 +86,7 @@ a {
 .footer {
   position: fixed;
   bottom: 0;
-  width: 100%;
-  min-width: 1125px;
+  width: 900px;
   color: white;
   font-size: 25px;
   font-family: 'PT Sans', sans-serif;
