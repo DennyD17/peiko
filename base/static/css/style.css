@@ -35,7 +35,7 @@ a {
 .head__callback :hover{
   background-color: grey;
   color: white;
-  border: 3px solid grey;
+  border: 1px solid grey;
 }
 
 .callback__text {
@@ -123,7 +123,7 @@ a {
 }
 
 .message__text {
-  border: 3px solid white;
+  border: 1px solid white;
   border-radius: 5px;
   margin: 0 auto;
   padding: 7px 10px 8px 10px;
