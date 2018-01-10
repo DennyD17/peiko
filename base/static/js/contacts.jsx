@@ -11,7 +11,7 @@ export default class Contacts extends React.Component{
 	render() {
 		return(
 				<div>
-					Дэн хуесоскин
+					Контактная информация
 				</div>
 			)
 	}
