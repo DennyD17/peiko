@@ -1,8 +1,29 @@
 from rest_framework import serializers
-from base.models import Product
+from base.models import *
 
 
-class ProductSerializer(serializers.HyperlinkedModelSerializer):
+class ProductDetailSerializer(serializers.HyperlinkedModelSerializer):
+    product_type = serializers.PrimaryKeyRelatedField(many=False, read_only=True)
+    product_type_name = serializers.CharField(source='product_type.name', read_only=True)
+
     class Meta:
         model = Product
-        fields = ['id', 'name', 'description', 'image', 'img_url']
+        fields = '__all__'
+
+
+class ProductListSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Product
+        fields = ['id', 'name', 'description', 'img_url']
+
+
+class AboutTextSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = AboutPageText
+        fields = '__all__'
+
+
+class ContactsTextSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = ContactsPageText
+        fields = '__all__'
