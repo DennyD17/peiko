@@ -11,7 +11,7 @@ export default class Menu extends React.Component{
 		return(
 				<div>
 					<div className='menu__info'>
-						<NavLink to='/'>О компании</NavLink>
+						<NavLink to='/about'>О компании</NavLink>
 					</div>
 					<div className='menu__items'>
 						<NavLink to='/products'>Продукция</NavLink>

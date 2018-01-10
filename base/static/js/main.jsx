@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDom from 'react-dom';
+import { NavLink } from 'react-router-dom'
 import styles from '../css/style.css';
 
 import Menu from './menu'
@@ -19,7 +20,7 @@ export default class Main extends React.Component {
 		return (
 			<div className='body'>
 				<div className='head'>
-					<div className='head__logo'></div>
+					<NavLink to='/'><div className='head__logo'></div></NavLink>
 				    <div className='head__callback'>
 				      <p className='callback__text'>
 				        Заказать звонок
