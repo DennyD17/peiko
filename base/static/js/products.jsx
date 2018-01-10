@@ -28,19 +28,14 @@ export default class Products extends React.Component{
 
 	render() {
 		console.log(this.state.topProducts)
-		let productsTemplate;
-		productsTemplate = this.state.topProducts.map((item, key) => {
-			return (
-					<div key={item.id}>
-						{item.name}
-					</div>
-				)
-		}
-
-			)
 		return(
 				<div>
-					{productsTemplate}
+					{this.state.topProducts.map((item, index) => (
+						<div key={index}>
+							{item.name}
+						</div>
+						)
+						)}
 				</div>
 			)
 	}
