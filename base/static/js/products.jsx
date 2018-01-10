@@ -10,10 +10,14 @@ export default class Products extends React.Component{
 		}
 	}
 
+	componentWillMount() {
+		
+	}
+
 	render() {
 		return(
 				<div>
-				ALALLA
+				Products
 				</div>
 			)
 	}
