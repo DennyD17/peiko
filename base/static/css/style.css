@@ -9,8 +9,7 @@ a {
   color: black;
 }
 
-.head,
-.footer {
+.head {
   margin-top: 20px;
   margin-left: 15px;
   margin-right: 15px;
@@ -36,7 +35,7 @@ a {
 .head__callback :hover{
   background-color: grey;
   color: white;
-  border: 3px solid grey;
+  border: 1px solid grey;
 }
 
 .callback__text {
@@ -75,18 +74,26 @@ a {
 }
 
 .content {
+  text-align: center;
   background-color: white;
   width: 100%;
   height: 210px;
   margin-top: 20px;
+  box-sizing: border-box;
+  padding: 20px;
 }
 
 .footer {
-  margin-bottom: 20px;
-  width: inherit;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
   color: white;
   font-size: 25px;
   font-family: 'PT Sans', sans-serif;
+  padding: 20px;
+  margin: 0;
+  box-sizing: border-box;
+
 }
 
 .footer__contacts {
@@ -116,7 +123,7 @@ a {
 }
 
 .message__text {
-  border: 3px solid white;
+  border: 1px solid white;
   border-radius: 5px;
   margin: 0 auto;
   padding: 7px 10px 8px 10px;
@@ -128,4 +135,14 @@ a {
   font-size: 12px;
   white-space: pre-line;
   text-align: right;
+}
+
+.products{
+  margin: 0 auto;
+}
+
+.products__item{
+  display: inline-block;
+  width: calc(100%/3);
+  margin-bottom: 20px;
 }

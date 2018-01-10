@@ -18,16 +18,17 @@ export default class Home extends React.Component{
 	}
 
 	componentDidMount() {
-		this.loadTopPtoducts('api/products/')
+		this.loadTopPtoducts('api/products/top_viewed/')
 	}
 
 	render() {
 		console.log(this.state.topProducts)
 		return(
-				<div>
+				<div className='products'>
 					{this.state.topProducts.map((item, index) => (
-						<div key={index}>
-							{item.name} - {item.description}
+						<div className='products__item' key={index}>
+							<div>{item.name}</div> 
+							<div>{item.description}</div>
 						</div>
 					))}
 				</div>
