@@ -1,7 +1,7 @@
 body {
   background-color: #b8b8ba;
-  width: 100%;
-  margin: 0;
+  width: 900px;
+  margin: 0 auto;
 }
 
 a {
@@ -39,7 +39,7 @@ a {
 }
 
 .callback__text {
-  border: 3px solid #ee1d23;
+  border: 1px solid #ee1d23;
   border-radius: 5px;
   font-size: 25px;
   font-family: 'PT Sans', sans-serif;
@@ -54,6 +54,7 @@ a {
   display: inline-block;
   background-color: white;
   width: 100%;
+  border-radius: 5px;
 }
 
 .menu__info, .menu__items, .menu__contacts {
@@ -81,12 +82,13 @@ a {
   margin-top: 20px;
   box-sizing: border-box;
   padding: 20px;
+  border-radius: 5px;
 }
 
 .footer {
   position: fixed;
   bottom: 0;
-  width: 100%;
+  width: 900px;
   color: white;
   font-size: 25px;
   font-family: 'PT Sans', sans-serif;
