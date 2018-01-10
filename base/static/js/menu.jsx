@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDom from 'react-dom';
+import { NavLink } from 'react-router-dom'
 
 export default class Menu extends React.Component{
 	constructor(props) {
@@ -9,14 +10,14 @@ export default class Menu extends React.Component{
 	render() {
 		return(
 				<div>
-					<div className='menu__info' onClick={() => this.props.switch('about')}>
-						О компании
+					<div className='menu__info'>
+						<NavLink to='/'>О компании</NavLink>
 					</div>
-					<div className='menu__items' onClick={() => this.props.switch('products')}>
-						Продукция
+					<div className='menu__items'>
+						<NavLink to='/products'>Продукция</NavLink>
 					</div>
-					<div className='menu__contacts' onClick={() => this.props.switch('contacts')}>
-						Контакты
+					<div className='menu__contacts'>
+						<NavLink to='/contacts'>Контакты</NavLink>
 					</div>
 				</div>
 			)

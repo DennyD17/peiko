@@ -3,9 +3,6 @@ import ReactDom from 'react-dom';
 import styles from '../css/style.css';
 
 import Menu from './menu'
-import Products from './products'
-import About from './about'
-import Contacts from './contacts'
 
 export default class Main extends React.Component {
 
@@ -13,17 +10,9 @@ export default class Main extends React.Component {
 		super(props);
 
 		this.state = {
-			activePage: 'about',
+
 		}
-
-		this.setActivePage = this.setActivePage.bind(this);
 	}
-
-	setActivePage(name) {
-		this.setState({
-			activePage: name
-		});
-	};
 
 	render() {
 	
@@ -38,14 +27,10 @@ export default class Main extends React.Component {
 				    </div>
 				</div>
 				<div className='menu'>
-					<Menu
-						switch={this.setActivePage}
-					/>
+					<Menu />
 				</div>
 				<div className='content'>
-					{this.state.activePage == 'products' ? <Products /> : null}
-					{this.state.activePage == 'about' ? <About /> : null}
-					{this.state.activePage == 'contacts' ? <Contacts /> : null }
+					{this.props.children}
 				</div>
 				<div className='footer'>
 					<div className='footer__contacts'>
