@@ -9,7 +9,7 @@ export default class Menu extends React.Component{
 
 	render() {
 		return(
-				<div>
+				<div className='menu_pading'>
 					<div className='menu__info'>
 						<NavLink to='/about'>О компании</NavLink>
 					</div>
