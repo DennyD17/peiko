@@ -16,7 +16,8 @@ class ProductType(models.Model):
 
 
 class Product(models.Model):
-    product_type = models.ForeignKey(ProductType, on_delete=models.CASCADE, verbose_name='Тип продукта')
+    product_type = models.ForeignKey(ProductType, on_delete=models.CASCADE, verbose_name='Тип продукта',
+                                     related_name='products')
     name = models.CharField(max_length=100, verbose_name='Наименование')
     description = RichTextUploadingField(verbose_name='Описание', )
     image = models.ImageField(upload_to='images', verbose_name='Картинка', blank=True)
@@ -24,10 +25,7 @@ class Product(models.Model):
 
     @property
     def short_description(self):
-        if len(self.description) > 15:
-            return self.description[0:15] + ' ...'
-        else:
-            return self.description
+        return self.description[0:15] + ' ...' if len(self.description) > 15 else self.description
 
     @property
     def img_url(self):

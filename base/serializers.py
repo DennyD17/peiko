@@ -27,3 +27,10 @@ class ContactsTextSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = ContactsPageText
         fields = '__all__'
+
+
+class CategorySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ProductType
+        fields = ['id', 'name', 'products']
+        # depth = 1
