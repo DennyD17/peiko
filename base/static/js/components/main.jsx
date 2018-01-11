@@ -17,6 +17,15 @@ export default class Main extends React.Component {
 	}
 
 	render() {
+		
+		const modalHidden = {
+			display: 'none'
+		}
+
+		const modalShown = {
+			display: 'block'
+		}
+
 		console.log(this.state.modalwindow)
 		return (
 			<div className='body'>
@@ -33,6 +42,13 @@ export default class Main extends React.Component {
 				        Заказать звонок
 				      </p>
 				    </div>
+				</div>
+				<div  
+					className={this.state.modalwindow ? 'modal' : 'modal_hidden' }
+					>
+					<div>
+						Модальное окно
+					</div>
 				</div>
 				<div className='menu'>
 					<Menu />

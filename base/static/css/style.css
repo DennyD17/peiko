@@ -150,3 +150,11 @@ a {
   margin-bottom: 20px;
   vertical-align: text-top;
 }
+
+.modal{
+  display: block;
+}
+
+.modal_hidden{
+  display: none;
+}
