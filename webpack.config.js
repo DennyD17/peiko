@@ -1,5 +1,5 @@
-var path = require('path');
 var webpack = require('webpack');
+var path = require('path');
 var nodEnv = process.env.NODE_ENV;
 
 
@@ -42,6 +42,3 @@ module.exports = {
 	},
 	watch: true,
 };
-
-
-

@@ -1,7 +1,8 @@
+import 'babel-polyfill';
 import React from 'react';
 import ReactDom from 'react-dom';
 import { NavLink } from 'react-router-dom'
-import styles from '../css/style.css';
+import styles from '../../css/style.css';
 
 import Menu from './menu'
 

@@ -3,6 +3,12 @@
 */  
 {
     "presets":[
-        "es2015", "react"
-    ]
+        "es2015", "react", "env", "stage-0"
+    ],
+    "plugins": [],
+  "env": {
+    "start": {
+      "presets": ["react-hmre"]
+    }
+  }
 }
