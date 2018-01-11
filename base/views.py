@@ -1,11 +1,10 @@
 from django.views.generic import TemplateView
 from django.db.models import F
 
-from rest_framework import viewsets
+from rest_framework import viewsets, mixins
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from rest_framework.decorators import list_route
 from rest_framework.response import Response
-from rest_framework.generics import RetrieveAPIView
 
 from base.serializers import *
 from base.models import Product
@@ -42,14 +41,10 @@ class ProductViewSet(viewsets.ModelViewSet):
         return Response(serializer.data)
 
     def get_serializer_class(self):
-        if self.action == 'list':
-            return ProductListSerializer
-        if self.action == 'retrieve':
-            return ProductDetailSerializer
-        return ProductListSerializer
+        return ProductDetailSerializer if self.action == 'retrieve' else ProductListSerializer
 
 
-class AboutPageTextViewSet(viewsets.ModelViewSet):
+class AboutPageTextViewSet(mixins.ListModelMixin, mixins.RetrieveModelMixin, viewsets.GenericViewSet):
     """
     One item in array, that contains text from page About.
     """
@@ -58,7 +53,7 @@ class AboutPageTextViewSet(viewsets.ModelViewSet):
     serializer_class = AboutTextSerializer
 
 
-class ContactsPageTextViewSet(viewsets.ModelViewSet):
+class ContactsPageTextViewSet(mixins.ListModelMixin, mixins.RetrieveModelMixin, viewsets.GenericViewSet):
     """
         One item in array, that contains text from page Contacts.
     """
@@ -66,5 +61,9 @@ class ContactsPageTextViewSet(viewsets.ModelViewSet):
     permission_classes = [IsAuthenticatedOrReadOnly]
     serializer_class = ContactsTextSerializer
 
+
+class ProductTypeViewSet(mixins.ListModelMixin, mixins.RetrieveModelMixin, viewsets.GenericViewSet):
+    queryset = ProductType.objects.all()
+    serializer_class = CategorySerializer
 
 
