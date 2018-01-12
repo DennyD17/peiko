@@ -7,13 +7,22 @@ export default class Products extends React.Component{
 		super(props);
 
 		this.state = {
-			products: []
+			products: [],
+			requestFailed: false
 		}
 	}
 
 	async loadProducts(url) {
-		this.setState({
-			products: await fetch(url).then(res => res.json()).catch(function(error) {console.log(error)})
+		await fetch(url)
+		.then(res => res.json())
+		.then( res => {
+			this.setState({
+				products: res
+			})
+		}, () => {
+			this.setState({
+				requestFailed: true
+			})
 		})
 	}
 
@@ -22,17 +31,27 @@ export default class Products extends React.Component{
 	}
 
 	render() {
-
+		console.log('request is failed: ' + this.state.requestFailed)
 		const imgSize = {
 			width : '150px'
 		}
 
 		return(
 				<div className='products'>
+					{this.state.requestFailed ? 
+						<h1 class="error">
+							Ошибка запроса к базе данных
+						</h1> 
+						: 
+						null }
 					{this.state.products.map((item, index) => (
 						<div className='products__item' key={index}>
-							<div>{item.name}</div>
-							<div><img style={imgSize} src={item.img_url}/></div>
+							<div>
+								{item.name}
+							</div>
+							<div>
+								<img style={imgSize} src={item.img_url}/>
+							</div>
 							<div dangerouslySetInnerHTML={{ __html: item.description }} />
 						</div>
 					))}

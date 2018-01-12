@@ -5,6 +5,7 @@ import { NavLink } from 'react-router-dom'
 import styles from '../../css/style.css';
 
 import Menu from './menu'
+import Modal from './modal'
 
 export default class Main extends React.Component {
 
@@ -27,6 +28,7 @@ export default class Main extends React.Component {
 		}
 
 		console.log(this.state.modalwindow)
+		
 		return (
 			<div className='body'>
 				<div className='head'>
@@ -43,13 +45,7 @@ export default class Main extends React.Component {
 				      </p>
 				    </div>
 				</div>
-				<div  
-					className={this.state.modalwindow ? 'modal' : 'modal_hidden' }
-					>
-					<div>
-						Модальное окно
-					</div>
-				</div>
+				<Modal className={this.state.modalwindow ? 'modal' : 'modal_hidden'} />
 				<div className='menu'>
 					<Menu />
 				</div>
