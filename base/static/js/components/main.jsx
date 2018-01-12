@@ -13,22 +13,20 @@ export default class Main extends React.Component {
 		super(props);
 
 		this.state = {
-			modalwindow: false
+			callbackModal: false,
 		}
+		this.setModalVisible = this.setModalVisible.bind(this)
 	}
 
+	setModalVisible(stateOptions, stateStatus) {
+		this.setState({
+			[stateOptions]: stateStatus
+		})
+	}
+
+
 	render() {
-		
-		const modalHidden = {
-			display: 'none'
-		}
-
-		const modalShown = {
-			display: 'block'
-		}
-
-		console.log(this.state.modalwindow)
-		
+		console.log('Modal is visible: ' + this.state.callbackModal)
 		return (
 			<div className='body'>
 				<div className='head'>
@@ -37,15 +35,20 @@ export default class Main extends React.Component {
 						</div>
 					</NavLink>
 				    <div 
-				    	className='head__callback' 
-				    	onClick= {() => this.setState({modalwindow: true})}
+				    	className='head__callback'
+				    	onClick= {() => this.setModalVisible('callbackModal', true)}
 				    >
 				      <p className='callback__text'>
 				        Заказать звонок
 				      </p>
 				    </div>
 				</div>
-				<Modal className={this.state.modalwindow ? 'modal' : 'modal_hidden'} />
+				<Modal 
+					visibility={this.state.callbackModal} 
+					setInvisible={this.setModalVisible}
+					>
+					Модальное окно
+				</Modal>
 				<div className='menu'>
 					<Menu />
 				</div>
@@ -66,7 +69,10 @@ export default class Main extends React.Component {
 						</div>
 					</div>
 					<div className='footer__message'>
-						<div className='message__text'>
+						<div 
+							className='message__text'
+							onClick= {() => this.setState({modalMessage: true})}
+							>
 							Напишите нам
 						</div>
 						<div className='message__rights'>
