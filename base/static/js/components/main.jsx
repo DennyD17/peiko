@@ -14,6 +14,7 @@ export default class Main extends React.Component {
 
 		this.state = {
 			callbackModal: false,
+			sendMessageModal: false,
 		}
 		this.setModalVisible = this.setModalVisible.bind(this)
 	}
@@ -46,8 +47,16 @@ export default class Main extends React.Component {
 				<Modal 
 					visibility={this.state.callbackModal} 
 					setInvisible={this.setModalVisible}
+					statePoint={'callbackModal'}
 					>
-					Модальное окно
+					Модальное окно обратного звонка
+				</Modal>
+				<Modal
+					visibility={this.state.sendMessageModal} 
+					setInvisible={this.setModalVisible}
+					statePoint={'sendMessageModal'}
+					>
+					Модальное окно отправки сообщения
 				</Modal>
 				<div className='menu'>
 					<Menu />
@@ -71,9 +80,11 @@ export default class Main extends React.Component {
 					<div className='footer__message'>
 						<div 
 							className='message__text'
-							onClick= {() => this.setState({modalMessage: true})}
+							onClick= {() => this.setState({sendMessageModal: true})}
 							>
+							<div className='text__box'>
 							Напишите нам
+							</div>
 						</div>
 						<div className='message__rights'>
 							<p>Все права защищены ©  2009–2018 г. <br/>

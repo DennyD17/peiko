@@ -11,11 +11,12 @@ export default class Modal extends React.Component{
 	 }
 
 	hideModal(e){
+		e.preventDefault();
 		if (this.child.contains(e.target)){
 			return
-		} else {
-			this.props.setInvisible('callbackModal', false);
-		}
+		} 
+			this.props.setInvisible( this.props.statePoint, false);
+		
 	}
 
 
@@ -30,7 +31,13 @@ export default class Modal extends React.Component{
 						ref={(child) => (this.child = child)} 
 						className='modal__content'
 						>
+						<div 
+							onClick={() => {this.props.setInvisible( this.props.statePoint, false)}}
+						>
+							X
+						</div>
 						{this.props.children}
+						хуй
 					</div>
 				</div>
 			)
