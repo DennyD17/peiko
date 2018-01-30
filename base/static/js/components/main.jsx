@@ -1,7 +1,7 @@
 import 'babel-polyfill';
 import React from 'react';
 import ReactDom from 'react-dom';
-import { NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router-dom';
 import styles from '../../css/style.css';
 
 import Menu from './menu'
@@ -52,7 +52,7 @@ export default class Main extends React.Component {
 					Модальное окно обратного звонка
 				</Modal>
 				<Modal
-					visibility={this.state.sendMessageModal} 
+					visibility={this.state.sendMessageModal}
 					setInvisible={this.setModalVisible}
 					statePoint={'sendMessageModal'}
 					>

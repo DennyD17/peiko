@@ -164,6 +164,13 @@ a {
   vertical-align: text-top;
 }
 
+.item{
+  margin: 0 auto;
+  width: 150px;
+  height: 115px;
+  border-radius: 5px;
+}
+
 .modal{
   display: block;
   position: fixed;
@@ -174,10 +181,12 @@ a {
   width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: rgba(0,0,0,0.6); /* Black w/ opacity */
+  background-color: rgba(0,0,0,0.7); /* Black w/ opacity */
+  transition: background-color 1.2s linear;
 }
 
 .modal__content{
+  position: relative;
   background-color: #fefefe;
   margin: auto;
   padding: 20px;
@@ -185,6 +194,22 @@ a {
   border-radius: 5px;
   text-align: center;
   width: 50%;
+}
+
+.close__btn{
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  color: #9d9d9c;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.close__btn:hover{
+  font-size: 15px;
+  color: #4a4a4a;
+
 }
 
 .modal_hidden{

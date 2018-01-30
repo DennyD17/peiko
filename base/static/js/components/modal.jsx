@@ -30,14 +30,14 @@ export default class Modal extends React.Component{
 					<div 
 						ref={(child) => (this.child = child)} 
 						className='modal__content'
-						>
+					>
 						<div 
+							className="close__btn"
 							onClick={() => {this.props.setInvisible( this.props.statePoint, false)}}
 						>
 							X
 						</div>
 						{this.props.children}
-						хуй
 					</div>
 				</div>
 			)

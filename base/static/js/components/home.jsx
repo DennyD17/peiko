@@ -33,7 +33,8 @@ export default class Home extends React.Component{
 	render() {
 
 		const imgSize = {
-			width : '150px'
+			width : '150px',
+			borderRadius: '20px'
 		}
 
 		return(
@@ -49,7 +50,7 @@ export default class Home extends React.Component{
 							<div>
 								{item.name}
 							</div>
-							<div>
+							<div className="item">
 								<img style={imgSize} src={item.img_url}/>
 							</div>
 							<div dangerouslySetInnerHTML={{ __html: item.description }} />

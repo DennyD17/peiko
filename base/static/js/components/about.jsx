@@ -43,17 +43,17 @@ export default class About extends React.Component{
 		}
 		return(
 				<div className='about'>
-					{this.state.requestFailed ? 
+					{this.state.requestFailed ?
 						<h1 class="error">
 							Ошибка запроса к базе данных
-						</h1> 
-						: 
+						</h1>
+						:
 						null }
 						{
-							this.state.about[0] != undefined ? 
-							<div 
-								className='about__text' 
-								dangerouslySetInnerHTML={{ __html: this.state.about[0].about_text }} /> 
+							this.state.about[0] != undefined ?
+							<div
+								className='about__text'
+								dangerouslySetInnerHTML={{ __html: this.state.about[0].about_text }} />
 								:
 								console.log('nothing')
 						}
