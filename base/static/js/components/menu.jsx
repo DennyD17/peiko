@@ -11,13 +11,13 @@ export default class Menu extends React.Component{
 		return(
 				<div className='menu_pading'>
 					<div className='menu__info'>
-						<NavLink to='/about'>О компании</NavLink>
+						<NavLink to='/about' activeClassName="selected">О компании</NavLink>
 					</div>
 					<div className='menu__items'>
-						<NavLink to='/products'>Продукция</NavLink>
+						<NavLink to='/products' activeClassName="selected">Продукция</NavLink>
 					</div>
 					<div className='menu__contacts'>
-						<NavLink to='/contacts'>Контакты</NavLink>
+						<NavLink to='/contacts' activeClassName="selected">Контакты</NavLink>
 					</div>
 				</div>
 			)
