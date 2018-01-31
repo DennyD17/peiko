@@ -2,10 +2,12 @@ import 'babel-polyfill';
 import React from 'react';
 import ReactDom from 'react-dom';
 import { NavLink } from 'react-router-dom';
-import styles from '../../css/style.css';
 
+import styles from '../../css/style.css';
 import Menu from './menu'
 import Modal from './modal'
+import Callback from './modal__components/callback'
+import Message from './modal__components/message'
 
 export default class Main extends React.Component {
 
@@ -49,7 +51,7 @@ export default class Main extends React.Component {
 					setInvisible={this.setModalVisible}
 					statePoint={'callbackModal'}
 					>
-					Модальное окно обратного звонка
+						<Callback />
 				</Modal>
 				<Modal
 					visibility={this.state.sendMessageModal}
