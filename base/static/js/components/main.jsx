@@ -42,7 +42,7 @@ export default class Main extends React.Component {
 				    	onClick= {() => this.setModalVisible('callbackModal', true)}
 				    >
 				      <p className='callback__text'>
-				        Заказать звонок
+				        ЗАКАЗАТЬ ЗВОНОК
 				      </p>
 				    </div>
 				</div>
@@ -85,7 +85,7 @@ export default class Main extends React.Component {
 							onClick= {() => this.setState({sendMessageModal: true})}
 							>
 							<div className='text__box'>
-							Напишите нам
+							НАПИШИТЕ НАМ
 							</div>
 						</div>
 						<div className='message__rights'>
