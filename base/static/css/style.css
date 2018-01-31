@@ -18,6 +18,10 @@ input[type=submit] {
   background-color: #d36f2b;
   width: 255px;
   height: 40px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-size: 20px;
 }
 
 .head {

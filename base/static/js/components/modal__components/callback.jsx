@@ -23,7 +23,7 @@ export default class Callback extends React.Component {
 						</label>
 						<input name="phone" type="tel" id="phone" required/>
 					</div>
-					<input type="submit" />
+					<input type="submit" value="Отправить заявку" />
 				</form>
 			</div>
 			)

@@ -58,7 +58,7 @@ export default class Main extends React.Component {
 					setInvisible={this.setModalVisible}
 					statePoint={'sendMessageModal'}
 					>
-					Модальное окно отправки сообщения
+					<Message />
 				</Modal>
 				<div className='menu'>
 					<Menu />
