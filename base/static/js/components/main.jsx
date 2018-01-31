@@ -1,9 +1,11 @@
+import 'babel-polyfill';
 import React from 'react';
 import ReactDom from 'react-dom';
 import { NavLink } from 'react-router-dom'
-import styles from '../css/style.css';
+import styles from '../../css/style.css';
 
 import Menu from './menu'
+import Modal from './modal'
 
 export default class Main extends React.Component {
 
@@ -11,12 +13,21 @@ export default class Main extends React.Component {
 		super(props);
 
 		this.state = {
-			modalwindow: false
+			callbackModal: false,
+			sendMessageModal: false,
 		}
+		this.setModalVisible = this.setModalVisible.bind(this)
 	}
 
+	setModalVisible(stateOptions, stateStatus) {
+		this.setState({
+			[stateOptions]: stateStatus
+		})
+	}
+
+
 	render() {
-		console.log(this.state.modalwindow)
+		console.log('Modal is visible: ' + this.state.callbackModal)
 		return (
 			<div className='body'>
 				<div className='head'>
@@ -25,14 +36,28 @@ export default class Main extends React.Component {
 						</div>
 					</NavLink>
 				    <div 
-				    	className='head__callback' 
-				    	onClick= {() => this.setState({modalwindow: true})}
+				    	className='head__callback'
+				    	onClick= {() => this.setModalVisible('callbackModal', true)}
 				    >
 				      <p className='callback__text'>
 				        Заказать звонок
 				      </p>
 				    </div>
 				</div>
+				<Modal 
+					visibility={this.state.callbackModal} 
+					setInvisible={this.setModalVisible}
+					statePoint={'callbackModal'}
+					>
+					Модальное окно обратного звонка
+				</Modal>
+				<Modal
+					visibility={this.state.sendMessageModal} 
+					setInvisible={this.setModalVisible}
+					statePoint={'sendMessageModal'}
+					>
+					Модальное окно отправки сообщения
+				</Modal>
 				<div className='menu'>
 					<Menu />
 				</div>
@@ -53,8 +78,13 @@ export default class Main extends React.Component {
 						</div>
 					</div>
 					<div className='footer__message'>
-						<div className='message__text'>
+						<div 
+							className='message__text'
+							onClick= {() => this.setState({sendMessageModal: true})}
+							>
+							<div className='text__box'>
 							Напишите нам
+							</div>
 						</div>
 						<div className='message__rights'>
 							<p>Все права защищены ©  2009–2018 г. <br/>

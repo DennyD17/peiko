@@ -1,5 +1,9 @@
+* {
+  font-family: 'PT Sans', sans-serif;
+}
+
 body {
-  background-color: #cecece;
+  background-color: #e3e3e3;
   width: 900px;
   margin: 0 auto;
   overflow-y: auto;
@@ -7,7 +11,7 @@ body {
 
 a {
   text-decoration: none;
-  color: black;
+  color: #5f5f5f;
 }
 
 .head {
@@ -44,6 +48,7 @@ a {
   border-radius: 5px;
   font-size: 25px;
   font-family: 'PT Sans', sans-serif;
+  color: #5f5f5f;
   margin: 0 auto;
   padding: 7px 10px 8px 10px;
   vertical-align: middle;
@@ -96,12 +101,11 @@ a {
   padding: 20px;
   margin: 0;
   box-sizing: border-box;
-
+  background-color: #9d9d9c
 }
 
 .footer__contacts {
   display: inline-block;
-  float: left;
   min-width: 230px;
 }
 
@@ -129,9 +133,18 @@ a {
   border: 1px solid white;
   border-radius: 5px;
   margin: 0 auto;
-  padding: 7px 10px 8px 10px;
   vertical-align: middle;
   margin-bottom: 40px;
+  cursor: pointer;
+}
+
+.text__box {
+    padding: 7px 10px 8px 10px;
+}
+
+.message__text :hover {
+  background-color: white;
+  color:grey;
 }
 
 .message__rights {
@@ -149,4 +162,43 @@ a {
   width: calc(100%/3);
   margin-bottom: 20px;
   vertical-align: text-top;
+}
+
+.modal{
+  display: block;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.6); /* Black w/ opacity */
+}
+
+.modal__content{
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  border-radius: 5px;
+  text-align: center;
+  width: 50%;
+}
+
+.modal_hidden{
+  display: none;
+}
+
+.error{
+  color: #a25050;
+}
+
+.about{
+
+}
+
+.about__text{
+
 }

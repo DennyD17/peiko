@@ -7,13 +7,22 @@ export default class Home extends React.Component{
 		super(props);
 
 		this.state = {
-			topProducts: []
+			topProducts: [],
+			requestFailed: false
 		}
 	}
 
 	async loadTopProducts(url) {
-		this.setState({
-			topProducts: await fetch(url).then(res => res.json())
+		await fetch(url)
+		.then(res => res.json())
+		.then( res => {
+			this.setState({
+				topProducts: res
+			})
+		}, () => {
+			this.setState({
+				requestFailed: true
+			})
 		})
 	}
 
@@ -29,10 +38,20 @@ export default class Home extends React.Component{
 
 		return(
 				<div className='products'>
+					{this.state.requestFailed ? 
+						<h1 class="error">
+						Ошибка запроса к базе данных
+						</h1> 
+						: 
+						null }
 					{this.state.topProducts.map((item, index) => (
 						<div className='products__item' key={index}>
-							<div>{item.name}</div>
-							<div><img style={imgSize} src={item.img_url}/></div>
+							<div>
+								{item.name}
+							</div>
+							<div>
+								<img style={imgSize} src={item.img_url}/>
+							</div>
 							<div dangerouslySetInnerHTML={{ __html: item.description }} />
 						</div>
 					))}
