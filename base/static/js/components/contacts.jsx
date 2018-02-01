@@ -10,8 +10,9 @@ export default class Contacts extends React.Component{
 
 	render() {
 		return(
-				<div>
-					Контактная информация
+				<div className="contacts">
+					<div className="contacts__info">
+					</div>
 				</div>
 			)
 	}

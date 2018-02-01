@@ -252,14 +252,28 @@ border: 1px solid #ee1d23;
 }
 
 .error{
-  color: #a25050;
+    color: #ee1d23;
+    padding-top: 50px;
+    padding-bottom: 10px;
+    min-height: 333px;
+    box-sizing: border-box;
 }
 
 .about{
+    background-color: white;
+}
+
+
+.about__text{
 
 }
 
-.about__text{
+.contacts{
+  background-color: white;
+  min-height: 333px
+}
+
+.contacts__info {
 
 }
 
