@@ -147,7 +147,7 @@ border: 1px solid #ee1d23;
 .footer__message {
   display: inline-block;
   float: right;
-  min-width: 230px;
+  min-width: 200px;
   text-align: center;
 }
 
@@ -158,10 +158,11 @@ border: 1px solid #ee1d23;
   vertical-align: middle;
   margin-bottom: 40px;
   cursor: pointer;
+  width: 200px;
 }
 
 .text__box {
-  padding: 12px 25px 0px 25px;
+  padding: 12px 0 0 0;
   height: 40px;
   box-sizing: border-box;
   font-size: 15px;

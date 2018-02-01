@@ -40,7 +40,7 @@ export default class Home extends React.Component{
 		return(
 				<div className='products'>
 					{this.state.requestFailed ? 
-						<h1 class="error">
+						<h1 className="error">
 						Ошибка запроса к базе данных
 						</h1> 
 						: 
