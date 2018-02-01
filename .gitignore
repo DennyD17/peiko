@@ -113,7 +113,11 @@ docs/
 .idea
 
 # ������� ���������� collectstatic, �� ��� ����������
-/static/
+#static/
+
+db.sqlite3
+media/
+**/*hot-update*
 
 
 

@@ -191,6 +191,7 @@ border: 1px solid #ee1d23;
     margin: 20px 10px 0px 10px;
     vertical-align: text-top;
     box-sizing: border-box;
+    overflow: hidden;
 }
 
 .item{
