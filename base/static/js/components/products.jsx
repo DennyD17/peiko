@@ -33,7 +33,7 @@ export default class Products extends React.Component{
 	render() {
 		console.log('request is failed: ' + this.state.requestFailed)
 		const imgSize = {
-			width : '150px',
+			width : '170px',
 			borderRadius: '20px'
 		}
 
@@ -47,13 +47,12 @@ export default class Products extends React.Component{
 						null }
 					{this.state.products.map((item, index) => (
 						<div className='products__item' key={index}>
-							<div>
-								{item.name}
-							</div>
 							<div className="item">
 								<img style={imgSize} src={item.img_url}/>
 							</div>
-							<div className="borderTop" dangerouslySetInnerHTML={{ __html: item.description }} />
+							<div className="item__name borderTop">
+								{item.name}
+							</div>
 						</div>
 					))}
 				</div>

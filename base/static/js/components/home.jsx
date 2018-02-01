@@ -33,7 +33,7 @@ export default class Home extends React.Component{
 	render() {
 
 		const imgSize = {
-			width : '150px',
+			width : '170px',
 			borderRadius: '20px'
 		}
 
@@ -47,13 +47,12 @@ export default class Home extends React.Component{
 						null }
 					{this.state.topProducts.map((item, index) => (
 						<div className='products__item' key={index}>
-							<div>
-								{item.name}
-							</div>
 							<div className="item">
 								<img style={imgSize} src={item.img_url}/>
 							</div>
-							<div className="borderTop" dangerouslySetInnerHTML={{ __html: item.description }} />
+							<div className="item__name borderTop">
+								{item.name}
+							</div>
 						</div>
 					))}
 				</div>
