@@ -53,7 +53,7 @@ export default class Home extends React.Component{
 							<div className="item">
 								<img style={imgSize} src={item.img_url}/>
 							</div>
-							<div dangerouslySetInnerHTML={{ __html: item.description }} />
+							<div className="borderTop" dangerouslySetInnerHTML={{ __html: item.description }} />
 						</div>
 					))}
 				</div>
