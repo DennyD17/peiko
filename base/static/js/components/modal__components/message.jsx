@@ -10,24 +10,42 @@ export default class Callback extends React.Component {
 				<form 
 					action="/message" 
 					method="POST"
+					id="messageForm"
 				>
 					<div className="modalCallback__input">
 						<label htmlFor="name">
 						Ваше имя: 
 						</label>
-						<input name="name" type="text" id="name" required/>
+						<input 
+							name="name" 
+							type="text"
+							onChange={(e) => this.props.validate(e, 'messageName')}
+							value={this.props.name} 
+							id="name" required/>
 					</div>
 					<div className="modalCallback__input">
 						<label htmlFor="E-mail">
 						Ваша почта: 
 						</label>
-						<input name="mail" type="text" id="mail" required/>
+						<input 
+							name="mail" 
+							type="text"
+							onChange={(e) => this.props.validate(e, 'messageMail')}
+							value={this.props.mail} 
+							id="mail" required/>
 					</div>
 					<div className="modalCallback__input">
 						<label htmlFor="E-mail">
 						Сообщение: 
 						</label>
-						<input name="message" type="text" id="message" required/>
+						<textarea 
+							name="message" 
+							type="text" 
+							onChange={(e) => this.props.validate(e, 'messageText')}
+							value={this.props.text}
+							id="message"
+							form="messageForm"
+						required/>
 					</div>
 					<input type="submit" value="Отправить сообщение" />
 				</form>

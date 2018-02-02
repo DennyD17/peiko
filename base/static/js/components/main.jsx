@@ -17,15 +17,41 @@ export default class Main extends React.Component {
 		this.state = {
 			callbackModal: false,
 			sendMessageModal: false,
+			callbackName: '',
+			callbackPhone: '',
+			messageName: '',
+			messageMail: '',
+			messageText: ''
 		}
 		this.setModalVisible = this.setModalVisible.bind(this)
+		this.validate = this.validate.bind(this)
+		this.changeModalState = this.changeModalState.bind(this)
 	}
 
 	setModalVisible(stateOptions, stateStatus) {
 		this.setState({
-			[stateOptions]: stateStatus
+			[stateOptions]: stateStatus,
+			callbackName: '',
+			callbackPhone: '',
+			messageName: '',
+			messageMail: '',
+			messageText: ''
 		})
 	}
+
+	validate(e, stateOptions) {
+		this.setState({
+			[stateOptions]: e.target.value
+		})
+	}
+
+	changeModalState() {
+		this.setState({
+			callbackPhone: '',
+			callbackName: ''
+		})
+	}
+
 
 
 	render() {
@@ -46,19 +72,29 @@ export default class Main extends React.Component {
 				      </p>
 				    </div>
 				</div>
-				<Modal 
+				<Modal
 					visibility={this.state.callbackModal} 
 					setInvisible={this.setModalVisible}
 					statePoint={'callbackModal'}
-					>
-						<Callback />
+				>
+						<Callback
+							validate={this.validate}
+							name={this.state.callbackName}
+							phone={this.state.callbackPhone} 
+						/>
 				</Modal>
 				<Modal
+					isVisible={this.state.sendMessageModal}
 					visibility={this.state.sendMessageModal}
 					setInvisible={this.setModalVisible}
 					statePoint={'sendMessageModal'}
 					>
-					<Message />
+					<Message 
+						name={this.state.messageName}
+						mail={this.state.messageMail}
+						text={this.state.messageText}
+						validate={this.validate}
+					/>
 				</Modal>
 				<div className='menu'>
 					<Menu />
