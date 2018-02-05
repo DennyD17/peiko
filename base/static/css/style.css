@@ -22,6 +22,7 @@ input[type=submit] {
   border: none;
   color: white;
   font-size: 20px;
+  cursor: pointer;
 }
 
 textarea{
@@ -143,7 +144,7 @@ textarea{
 }
 
 .contacts__info {
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 
 .marginBottom {
@@ -195,6 +196,7 @@ textarea{
 }
 
 .products__item{
+    cursor: pointer;
     display: inline-block;
     width: calc(100%/3 - 20px);
     height: 220px;
@@ -300,10 +302,6 @@ textarea{
 .contacts{
   background-color: white;
   min-height: 333px
-}
-
-.contacts__info {
-
 }
 
 .modalCallback{
