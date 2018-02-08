@@ -2,9 +2,14 @@
   font-family: 'PT Sans', sans-serif;
 }
 
+html {
+  height: 100%;
+}
+
 body {
   background-color: white;
   width: 1200px;
+  height: 100%;
   margin: 0 auto;
   overflow-y: auto;
   margin-top: -1px;
@@ -36,6 +41,17 @@ textarea{
 #main {
   background-color: #efeeee;
   padding-top: 1px;
+  min-height: 100%;
+  position: relative;
+}
+
+.body {
+  min-height: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
 .head {
@@ -122,11 +138,14 @@ textarea{
 .content {
   text-align: center;
   width: 100%;
+  min-height: 100%;
   padding: 0 20px 30px 20px;
   box-sizing: border-box;
 }
 
 .footer {
+  position: relative;
+  bottom: 0;
   width: 100%;
   color: white;
   font-size: 25px;
