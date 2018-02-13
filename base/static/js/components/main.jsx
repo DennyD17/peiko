@@ -11,8 +11,8 @@ import Message from './modal__components/message'
 
 export default class Main extends React.Component {
 
-	constructor(props) {
-		super(props);
+	constructor() {
+		super();
 
 		this.state = {
 			callbackModal: false,
@@ -21,11 +21,15 @@ export default class Main extends React.Component {
 			callbackPhone: '',
 			messageName: '',
 			messageMail: '',
-			messageText: ''
+			messageText: '',
+			mainName: '',
+			mainMail: '',
 		}
-		this.setModalVisible = this.setModalVisible.bind(this)
-		this.validate = this.validate.bind(this)
-		this.changeModalState = this.changeModalState.bind(this)
+
+		this.setModalVisible = this.setModalVisible.bind(this);
+		this.validate = this.validate.bind(this);
+		this.changeModalState = this.changeModalState.bind(this);
+		this.handleSubmit = this.handleSubmit.bind(this);
 	}
 
 	setModalVisible(stateOptions, stateStatus) {
@@ -53,9 +57,18 @@ export default class Main extends React.Component {
 	}
 
 
+  handleSubmit(e, url) {
+    event.preventDefault();
+    const data = new FormData(e.target);
+    
+    fetch(url, {
+      method: 'POST',
+      body: data,
+    });
+  }
 
 	render() {
-		console.log('Modal is visible: ' + this.state.callbackModal)
+
 		return (
 			<div className='body'>
 				<div className='head'>
@@ -71,6 +84,9 @@ export default class Main extends React.Component {
 				        ЗАКАЗАТЬ ЗВОНОК
 				      </p>
 				    </div>
+				    <div className='head__info'>
+							8 (495) 405-01-35
+					</div>
 				</div>
 				<Modal
 					visibility={this.state.callbackModal} 
@@ -101,6 +117,31 @@ export default class Main extends React.Component {
 				</div>
 				<div className='content'>
 					{this.props.children}
+				</div>
+				<div className="textBack">
+					<h1>Не нашли нужный товар?</h1>
+					<p>Оставьте заявку - наш менеджер Вам перезвонит</p>
+					<form 
+						action="/" 
+						method="POST"
+						onSubmit={(e) => this.handleSubmit(e, '/')}
+						>
+						<div className="textBack__element">
+							<label htmlFor="name">
+								Ваше Имя
+							</label>
+							<input type="text" name="name" required/>
+						</div>
+						<div className="textBack__element">
+							<label htmlFor="mail">
+								Ваш e-mail
+							</label>
+							<input type="text" name="mail" required/>
+						</div>
+						<div className="textBack__element">
+							<input type="submit" value="Оставить заявку" />
+						</div>
+					</form>
 				</div>
 				<div className='footer'>
 					<div className='footer__contacts'>

@@ -39,7 +39,7 @@ export default class Callback extends React.Component {
 							onChange={(e) => this.props.validate(e, 'callbackPhone')}
 							required/>
 					</div>
-					<input type="submit" value="Отправить заявку" />
+					<input type="submit" value="Отправить заявку"/>
 				</form>
 			</div>
 			)
