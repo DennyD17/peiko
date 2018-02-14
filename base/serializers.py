@@ -32,5 +32,5 @@ class ContactsTextSerializer(serializers.HyperlinkedModelSerializer):
 class CategorySerializer(serializers.ModelSerializer):
     class Meta:
         model = ProductType
-        fields = ['id', 'name', 'products']
-        # depth = 1
+        fields = ['id', 'name', 'description', 'image', 'products']
+        depth = 1
