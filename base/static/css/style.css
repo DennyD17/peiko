@@ -163,6 +163,7 @@ textarea{
   position: relative;
   bottom: -20px;
   padding: 10px 10px 60px 10px;
+  letter-spacing: 2px;
 }
 
 .textBack p {
