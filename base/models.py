@@ -6,6 +6,8 @@ from ckeditor_uploader.fields import RichTextUploadingField
 
 class ProductType(models.Model):
     name = models.CharField(max_length=70, verbose_name='Наименование типа')
+    description = RichTextUploadingField(verbose_name='Описание', blank=True)
+    image = models.ImageField(upload_to='images', verbose_name='Картинка', blank=True)
 
     class Meta:
         verbose_name = 'Тип продукта'
