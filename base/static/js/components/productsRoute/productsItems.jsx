@@ -74,7 +74,7 @@ export default class Items extends React.Component {
 											activeDescription: item.description,
 											activeImage: item.image
 									})}>
-										{item.name}
+										<div>{item.name}</div>
 									</li>
 									))}
 							</ul>
