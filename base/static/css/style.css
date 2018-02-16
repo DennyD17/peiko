@@ -321,16 +321,18 @@ textarea{
 .category__items {
   display: inline-block;
   width: calc(100%/3);
-  border-right: 2px solid #ee1d23;
   box-sizing: border-box;
   padding-left: 30px;
-  padding-bottom: 150px;
 }
 
 .category__description {
   display: inline-block;
   vertical-align: top;
   padding-left: 20px;
+  max-width: calc(100% - (100% / 3));
+  box-sizing: border-box;
+  box-sizing: border-box;
+  padding-bottom: 100px;
 }
 
 .category__header {
@@ -376,7 +378,7 @@ textarea{
   transition: background-color 1.2s linear;
 }
 
-.modal__content{
+.modal__content {
   position: relative;
   background-color: #fefefe;
   margin: auto;
@@ -387,7 +389,7 @@ textarea{
   width: 50%;
 }
 
-.close__btn{
+.close__btn {
   position: absolute;
   top: 5px;
   right: 10px;
