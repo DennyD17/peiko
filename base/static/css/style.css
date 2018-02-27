@@ -1,3 +1,8 @@
+@font-face {
+  font-family: 'Droid Sans';
+  font-style: normal;
+}
+
 * {
   font-family: 'PT Sans', sans-serif;
 }
@@ -47,7 +52,7 @@ textarea{
 
 .body {
   min-height: 100%;
-  position: relative;
+  position: absolute;
   top: 0;
   bottom: 0;
   left: 0;
@@ -151,7 +156,7 @@ textarea{
 .content {
   text-align: center;
   width: 100%;
-  min-height: 100%;
+  min-height: 69%;
   padding: 0 20px 10px 20px;
   box-sizing: border-box;
 }
@@ -464,4 +469,16 @@ textarea{
 
 .borderTop {
   border-top: 2px solid #ee1d23;
+}
+
+@media screen and (min-width: 2200px) {
+  .textBack {
+    position: fixed;
+    bottom: 154px;
+    width: 1200px;
+  }
+  .footer {
+    position: fixed;
+    width: 1200px;
+  }
 }
