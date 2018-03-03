@@ -222,8 +222,39 @@ textarea{
   font-size: 20px;
 }
 
+.contacts__phone {
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
 .contacts__info {
-  margin-bottom: 5px;
+  display: inline-block;
+  margin-bottom: 10px;
+  border-bottom: 2px solid #ee1d23;
+}
+
+.info {
+
+}
+
+.info__element {
+  text-align: left;
+  margin: 15px;
+}
+
+.info__element div:first-child {
+  font-size: 20px;
+  width: 100px;
+  display: inline-block;
+}
+
+.info__element div:nth-child(2) {
+  display: inline-block;
+}
+
+.contacts__map {
+  display: inline-block;
+  margin-bottom: 20px;
 }
 
 .marginBottom {
@@ -435,9 +466,10 @@ textarea{
 }
 
 .contacts{
-  background-color: white;
-  min-height: 333px;
   margin-top: 20px;
+  min-height: 333px;
+  text-align: center;
+  background-color: white;
 }
 
 .modalCallback{

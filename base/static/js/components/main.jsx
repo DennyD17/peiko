@@ -145,7 +145,7 @@ export default class Main extends React.Component {
 				</div>
 				<div className='footer'>
 					<div className='footer__contacts'>
-						<div className='contacts__info'>
+						<div className='contacts__phone'>
 							8 (495) 405-01-35
 						</div>
 						<div className='marginBottom'>
