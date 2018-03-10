@@ -69,6 +69,10 @@ export default class Main extends React.Component {
 
 	render() {
 
+		const visibility = {
+			visibility: 'hidden',
+		}
+
 		return (
 			<div className='body'>
 				<div className='head'>
@@ -118,7 +122,10 @@ export default class Main extends React.Component {
 				<div className='content'>
 					{this.props.children}
 				</div>
-				<div className="textBack">
+				<div 
+					className="textBack" 
+					style={location.pathname == "/about" ? visibility : null}
+				>
 					<h1>Не нашли нужный товар?</h1>
 					<p>Оставьте заявку - наш менеджер Вам перезвонит</p>
 					<form 
@@ -134,7 +141,7 @@ export default class Main extends React.Component {
 						</div>
 						<div className="textBack__element">
 							<label htmlFor="mail">
-								Ваш e-mail
+								Ваш телефон
 							</label>
 							<input type="text" name="mail" required/>
 						</div>
