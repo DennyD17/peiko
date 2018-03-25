@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block active_about %}active_nav{% endblock %}
+{% block content %}
+    <div class="container-fluid" style="background-color: white">
+    <div class="about" style="margin: 0 20px">
+        {{ object.about_text|safe }}
+    </div>
+    </div>
+{% endblock %}

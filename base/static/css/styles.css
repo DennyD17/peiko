@@ -1,0 +1,147 @@
+@font-face {
+    src: url(../fonts/DroidSans.ttf);
+    font-family: Droidsans;
+}
+
+html, body{
+    height: 100%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    font-family: Droidsans;
+}
+
+.header{
+    height: 120px;
+}
+
+#logo{
+    margin: 20px 0 30px 4px;
+}
+
+#contact_info{
+    margin: 35px 4px 50px 0;
+}
+
+#contact_phone{
+    display: inline-block;
+    margin-right: 25px;
+    vertical-align: middle;
+    font-size: 23px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+#call_order{
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 15px;
+    letter-spacing: 2px;
+}
+
+.navbar-centered-items {
+    text-align: center;
+    font-size: 25px;
+    font-weight: 500;
+}
+
+.nav-items {
+    margin:0;
+    float:none;
+}
+
+.inline-block-nav-item {
+    display: inline-block;
+    width: 30%;
+}
+
+.nav-text{
+    color: #1C1C1C;
+    font-weight: bold;
+    letter-spacing: 2px;
+    font-size: 20px;
+}
+
+.image_wrapper{
+    margin: 20px auto 20px auto;
+    cursor: pointer;
+    border: 3px solid white;
+    border-radius: 3px;
+}
+
+.image_wrapper:hover{
+    box-shadow: 0 0 10px rgba(0,0,0,0.7);
+}
+
+.active_nav{
+    color: #DF0101;
+}
+
+.image_wrapper:hover .category_name_block{
+    background-color: #DF0101;
+}
+
+.separate_name_line{
+    color: #DF0101;
+    margin:0 auto;
+    width: 392px;
+    height: 3px;
+    background-color: #DF0101;
+}
+
+.category_name_block{
+    background-color: white;
+    width: 392px;
+    margin: auto;
+    min-height: 50px;
+    padding: 15px;
+    cursor: pointer;
+}
+
+.category_name_block:hover{
+    background-color: #DF0101;
+}
+
+.category_name{
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.category_link{
+    text-decoration: none;
+    color: black;
+}
+
+.category_link:hover{
+    color: white;
+}
+
+.accordion_link{
+    text-decoration: none;
+    color: #1C1C1C;
+    font-size: 20px;
+    }
+
+
+.accordion_link:hover{
+    color: #DF0101;
+    text-decoration: none;
+}
+
+.accordion_link:focus{
+    text-decoration: none;
+    color: #1C1C1C;
+}
+
+.panel{
+    background-color: inherit;
+}
+
+.product_tab{
+    color: #1C1C1C;
+}
+
+.active_category_tab{
+    color: #DF0101;
+    }

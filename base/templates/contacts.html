@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block extra_head %}
+        <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A0ac05dfe75b7e092ffb4da144c8813490cd730489ba291abbe4f3d46ffe10155&amp;width=600&amp;height=600&amp;lang=ru_RU&amp;scroll=true&amp;id=ya_map"></script>
+{% endblock %}
+{% block active_contacts %}active_nav{% endblock %}
+{% block content %}
+    <div class="container-fluid" style="background-color: white; padding-top: 20px; padding-bottom: 20px">
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12"><span id="ya_map"></span></div>
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">{{ object.contacts_text|safe }}</div>
+    </div>
+{% endblock %}

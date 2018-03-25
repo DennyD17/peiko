@@ -1,17 +1,19 @@
 {% extends 'base.html' %}
 {% load thumbnail %}
+
+{% block active_products %}active_nav{% endblock %}
 {% block content %}
     <div class="row text-center">
-    {% for product in products %}
+    {% for category in categories %}
         <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 text-center" style="margin: 0; padding: 0">
             <div class="image_wrapper text-center" style="width: 398px;">
-            <a class="category_link" href="{% url 'product' product.id %}">
-                {% thumbnail product.image "392x330" upscale=True padding=True as im %}
-                    <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" alt="{{ product.name }}">
+            <a class="category_link" href="{% if category.get_absolute_url %}{{ category.get_absolute_url }}{% else %}#{% endif %}">
+                {% thumbnail category.image "392x330" upscale=True padding=True as im %}
+                    <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" alt="{{ category.name }}">
                 {% endthumbnail %}
                 <hr class="separate_name_line">
                 <div class="category_name_block">
-                    <p class="category_name">{{ product.name }}</p>
+                    <p class="category_name">{{ category.name }}</p>
                 </div>
             </a>
             </div>

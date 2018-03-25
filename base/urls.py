@@ -1,13 +1,12 @@
 from base.views import *
-from rest_framework.routers import DefaultRouter
+from django.urls import re_path
 
 urlpatterns = [
+    re_path(r'^$', IndexView.as_view(), name='index'),
 ]
 
-router = DefaultRouter()
-router.register(r'products', ProductViewSet)
-router.register(r'about', AboutPageTextViewSet)
-router.register(r'contacts', ContactsPageTextViewSet)
-router.register(r'categories', ProductTypeViewSet)
-
-urlpatterns += router.urls
+urlpatterns += [re_path(r'^products/$', IndexView.as_view(), name='index')]
+urlpatterns += [re_path(r'^products/(?P<pk>[0-9]+)/$', ProductView.as_view(), name='product')]
+urlpatterns += [re_path(r'^about/$', AboutPageView.as_view(), name='about')]
+urlpatterns += [re_path(r'^contacts/$', ContactsPageView.as_view(), name='contacts')]
+urlpatterns += [re_path(r'^categories/$', CategoryView.as_view(), name='categories')]

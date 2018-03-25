@@ -1,69 +1,53 @@
-from django.views.generic import TemplateView
-from django.db.models import F
-
-from rest_framework import viewsets, mixins
-from rest_framework.permissions import IsAuthenticatedOrReadOnly
-from rest_framework.decorators import list_route
-from rest_framework.response import Response
-
-from base.serializers import *
-from base.models import Product
+from django.views.generic import TemplateView, DetailView, ListView
+from base.models import *
 
 
-class IndexView(TemplateView):
+class IndexView(ListView):
+    model = Product
     template_name = 'index.html'
+    context_object_name = 'products'
+
+    def get_queryset(self):
+        return self.model.objects.all().order_by('-num_of_views')[:5] or \
+               self.model.objects.all().order_by('-num_of_views')
 
 
-class ProductViewSet(viewsets.ModelViewSet):
-    """
-    GET products/ to get list of all products
-    GET products/id to get detail information about product with id
-    GET products/top_viewed to get list of six top vied products from all products in all categories
-    """
-    queryset = Product.objects.all()
-    permission_classes = [IsAuthenticatedOrReadOnly]
+class AboutPageView(DetailView):
+    model = AboutPageText
+    template_name = 'about.html'
 
-    def retrieve(self, request, *args, **kwargs):
-        """
-         :return: detail information about product
-        """
-        Product.objects.filter(pk=kwargs['pk']).update(num_of_views=F('num_of_views') + 1)
-        return super(ProductViewSet, self).retrieve(request, *args, **kwargs)
-
-    @list_route(methods=['GET'])
-    def top_viewed(self, *args, **kwargs):
-        """
-        :return: list of six top vied products from all products in all categories
-        """
-        top_products = Product.objects.all().order_by('-num_of_views')[:6] if Product.objects.all().count() >= 6 \
-            else Product.objects.all().order_by('-num_of_views')
-        serializer = self.get_serializer(top_products, many=True)
-        return Response(serializer.data)
-
-    def get_serializer_class(self):
-        return ProductDetailSerializer if self.action == 'retrieve' else ProductListSerializer
+    def get_object(self, queryset=None):
+        return self.model.objects.all()[0]
 
 
-class AboutPageTextViewSet(mixins.ListModelMixin, mixins.RetrieveModelMixin, viewsets.GenericViewSet):
-    """
-    One item in array, that contains text from page About.
-    """
-    queryset = AboutPageText.objects.all()
-    permission_classes = [IsAuthenticatedOrReadOnly]
-    serializer_class = AboutTextSerializer
+class ContactsPageView(DetailView):
+    model = ContactsPageText
+    template_name = 'contacts.html'
+
+    def get_object(self, queryset=None):
+        return self.model.objects.all()[0]
 
 
-class ContactsPageTextViewSet(mixins.ListModelMixin, mixins.RetrieveModelMixin, viewsets.GenericViewSet):
-    """
-        One item in array, that contains text from page Contacts.
-    """
-    queryset = ContactsPageText.objects.all()
-    permission_classes = [IsAuthenticatedOrReadOnly]
-    serializer_class = ContactsTextSerializer
+class CategoryView(ListView):
+    model = ProductType
+    template_name = 'categories.html'
+    context_object_name = 'categories'
 
 
-class ProductTypeViewSet(mixins.ListModelMixin, mixins.RetrieveModelMixin, viewsets.GenericViewSet):
-    queryset = ProductType.objects.all()
-    serializer_class = CategorySerializer
+class ProductView(ListView):
+    model = ProductType
+    template_name = 'product.html'
+    context_object_name = 'categories'
 
+    def dispatch(self, request, *args, **kwargs):
+        obj = Product.objects.get(pk=kwargs['pk'])
+        obj.num_of_views += 1
+        obj.save()
+        return super(ProductView, self).dispatch(request, *args, **kwargs)
 
+    def get_context_data(self, *args, **kwargs):
+        ctx = super(ProductView, self).get_context_data()
+        product_id = self.kwargs.get('pk')
+        ctx['current_product'] = Product.objects.get(id=product_id)
+        ctx['current_category'] = ctx['current_product'].product_type
+        return ctx

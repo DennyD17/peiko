@@ -1,5 +1,6 @@
 from django.db import models
 from django.core.exceptions import ValidationError
+from django.urls import reverse
 
 from ckeditor_uploader.fields import RichTextUploadingField
 
@@ -12,6 +13,12 @@ class ProductType(models.Model):
     class Meta:
         verbose_name = 'Тип продукта'
         verbose_name_plural = 'Типы продуктов'
+
+    def get_absolute_url(self):
+        if len(self.products.all()) > 0:
+            return reverse('product', kwargs={'pk': min(self.products.all().values_list('id', flat=True))})
+        else:
+            return None
 
     def __str__(self):
         return self.name
