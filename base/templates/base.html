@@ -66,11 +66,11 @@
             <span class="icon-bar"></span>
           </button>
         </div>
-        <div class="collapse navbar-collapse navbar-centered-items" id="navbar-main">
+        <div class="collapse navbar-collapse navbar-centered-items row vdivide" id="navbar-main">
             <ul class="nav nav-items">
-                <li style="cursor: pointer" class="col-xs-12 col-lg-4"><a class="nav-text {% block active_about %}{% endblock %}" href="{% url 'about' %}">О КОМПАНИИ</a></li>
-                <li style="cursor: pointer" class="col-xs-12 col-lg-4"><a class="nav-text {% block active_products %}{% endblock %}" href="{% url 'categories' %}">ПРОДУКЦИЯ</a></li>
-                <li style="cursor: pointer" class="col-xs-12 col-lg-4"><a class="nav-text {% block active_contacts %}{% endblock %}" href="{% url 'contacts' %}">КОНТАКТЫ</a></li>
+                <li style="cursor: pointer; padding: 0" class="col-xs-12 col-lg-4"><a class="nav-text {% block active_about %}{% endblock %}" href="{% url 'about' %}">О КОМПАНИИ</a></li>
+                <li style="cursor: pointer; padding: 0" class="col-xs-12 col-lg-4"><a class="nav-text {% block active_products %}{% endblock %}" href="{% url 'categories' %}">ПРОДУКЦИЯ</a></li>
+                <li style="cursor: pointer; padding: 0" class="col-xs-12 col-lg-4"><a class="nav-text {% block active_contacts %}{% endblock %}" href="{% url 'contacts' %}">КОНТАКТЫ</a></li>
             </ul>
         </div>
     </div>
@@ -92,7 +92,7 @@
                     <input type="email" class="form-control" id="ur_email_input" placeholder="example@gmail.com">
                   </div>
               </div>
-              <button type="submit" class="btn btn-danger" style="margin-bottom: 20px">Напишите нам</button>
+              <button type="submit" class="btn btn-danger" style="margin-bottom: 20px">Отправить</button>
             </form>
         </div>
         <div class="clearfix"></div>

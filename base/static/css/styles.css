@@ -38,6 +38,7 @@ html, body{
     vertical-align: middle;
     font-size: 15px;
     letter-spacing: 2px;
+    background-color: #DF0101;
 }
 
 .navbar-centered-items {
@@ -75,8 +76,7 @@ html, body{
 }
 
 .active_nav{
-    color: #23527c;
-    background-color: #EEEEEE;
+    color: #DF0101;
 }
 
 .image_wrapper:hover .category_name_block{
@@ -86,14 +86,14 @@ html, body{
 .separate_name_line{
     color: #DF0101;
     margin:0 auto;
-    width: 392px;
+    width: 350px;
     height: 3px;
     background-color: #DF0101;
 }
 
 .category_name_block{
     background-color: white;
-    width: 392px;
+    width: 350px;
     margin: auto;
     min-height: 50px;
     padding: 15px;
@@ -146,3 +146,23 @@ html, body{
 .active_category_tab{
     color: #DF0101;
     }
+
+.row.vdivide [class*='col-']:not(:last-child):after {
+  background: #e0e0e0;
+  width: 2px;
+  content: "";
+  display:block;
+  position: absolute;
+  top:0;
+  bottom: 0;
+  right: 0;
+  min-height: 40px;
+}
+
+.nav:hover{
+
+}
+
+.nav > li > a:hover, .nav > li > a:focus {
+    color: #DF0101;
+}
