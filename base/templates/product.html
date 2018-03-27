@@ -5,7 +5,7 @@
 {% block content %}
     <div class="container-fluid" style="background-color: white; padding: 20px 0">
         <div class="products_content" style="background-color: white">
-        <div class="col-lg-4 col-md-3 col-xs-12">
+        <div class="col-lg-3 col-md-3 col-xs-12">
               <h1 style="color: #DF0101; font-size: 20px; font-weight: bold; letter-spacing: 2px">КАТАЛОГ</h1>
               <div class="panel-group" id="accordion">
                   {% for category in categories %}
@@ -26,7 +26,7 @@
                   {% endfor %}
               </div>
         </div>
-        <div class="col-lg-8 col-md-9 col-xs-12" style="border-left: 2px solid #DF0101;">
+        <div class="col-lg-9 col-md-9 col-xs-12" style="border-left: 2px solid #DF0101;">
             <h1 style="color: #DF0101; margin-bottom: 0" class="text-left">{{ current_product.name }}</h1>
             {% thumbnail current_product.image "330x330" upscale=True padding=True as im %}
                 <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" alt="{{ current_product.name }}">

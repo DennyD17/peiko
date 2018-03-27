@@ -75,7 +75,8 @@ html, body{
 }
 
 .active_nav{
-    color: #DF0101;
+    color: #23527c;
+    background-color: #EEEEEE;
 }
 
 .image_wrapper:hover .category_name_block{
