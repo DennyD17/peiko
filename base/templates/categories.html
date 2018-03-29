@@ -12,7 +12,7 @@
                     <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" alt="{{ category.name }}">
                 {% endthumbnail %}
                 <hr class="separate_name_line">
-                <div class="category_name_block" style="display:table;min-height: 85px; overflow: hidden">
+                <div class="category_name_block" style="display:table;min-height: 85px;height: 85px; overflow: hidden">
                     <p class="category_name" style="display:table-cell; vertical-align: middle">{{ category.name }}</p>
                 </div>
             </a>
@@ -24,5 +24,6 @@
     {% empty %}
         <h2>Пока тут ничего нет.</h2>
     {% endfor %}
+    <div class="col-lg-1"></div>
     </div>
 {% endblock %}
