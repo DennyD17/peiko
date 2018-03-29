@@ -5,19 +5,7 @@
 {% block content %}
     <div class="row text-center">
     {% for category in categories %}
-        <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 text-center" style="margin: 0; padding: 0">
-            <div class="image_wrapper text-center" style="width: 356px;margin-bottom: 60px">
-            <a class="category_link" href="{% if category.get_absolute_url %}{{ category.get_absolute_url }}{% else %}#{% endif %}">
-                {% thumbnail category.image "350x250" upscale=True padding=True as im %}
-                    <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" alt="{{ category.name }}">
-                {% endthumbnail %}
-                <hr class="separate_name_line">
-                <div class="category_name_block" style="display:table;min-height: 85px;height: 85px; overflow: hidden">
-                    <p class="category_name" style="display:table-cell; vertical-align: middle">{{ category.name }}</p>
-                </div>
-            </a>
-            </div>
-        </div>
+        {% include '_triple_images_page.html' with item=category %}
         {% if forloop.counter|divisibleby:3 %}
             <div class="clearfix"></div>
         {% endif %}
